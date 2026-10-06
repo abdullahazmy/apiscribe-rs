@@ -274,11 +274,13 @@ impl Helper for SlashHelper {}
 
 /// Starts the interactive session.
 pub fn run(mut a: Agent) -> Result<(), String> {
-    ui::banner(
-        &a.cfg.project_root.display().to_string(),
-        &a.cfg.docs_dir.display().to_string(),
-        &a.cfg.model,
-    );
+    crate::banner::print(&crate::banner::BannerInfo {
+        version: env!("CARGO_PKG_VERSION"),
+        model: &a.cfg.model,
+        effort: &a.cfg.effort,
+        project_root: &a.cfg.project_root,
+        docs_dir: &a.cfg.docs_dir,
+    });
     let mut rl: Editor<SlashHelper, rustyline::history::DefaultHistory> =
         Editor::new().map_err(|e| e.to_string())?;
     rl.set_helper(Some(SlashHelper));

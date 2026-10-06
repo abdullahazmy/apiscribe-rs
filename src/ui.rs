@@ -89,26 +89,6 @@ impl Drop for Spinner {
     }
 }
 
-pub fn banner(project_root: &str, docs_dir: &str, model: &str) {
-    let line = accent(&"─".repeat(58));
-    println!("{line}");
-    println!(
-        "{} {} {}",
-        accent("✻"),
-        bold("apiscribe"),
-        dim("— API docs for frontend & mobile teams, powered by Claude")
-    );
-    println!("{}", dim(&format!("  project: {project_root}")));
-    println!("{}", dim(&format!("  docs:    {docs_dir}")));
-    println!("{}", dim(&format!("  model:   {model}")));
-    println!("{line}");
-    println!(
-        "{}",
-        dim("  /scan to document every endpoint · /image to map a screen to APIs · /help")
-    );
-    println!();
-}
-
 pub fn tool_line(name: &str, detail: &str) {
     println!(
         "{} {}{}{}{}",

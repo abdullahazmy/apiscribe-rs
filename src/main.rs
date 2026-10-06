@@ -3,6 +3,7 @@
 
 mod agent;
 mod api;
+mod banner;
 mod config;
 mod export;
 mod image;
